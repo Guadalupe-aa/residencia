@@ -1,0 +1,39 @@
+[{
+	"value": "padre", "name": "Padre"
+},{
+	"value": "madre", "name": "Madre"
+},{
+	"value": "padrastro", "name": "Padrastro"
+},{
+	"value": "madrastra", "name": "Madrastra"
+},{
+	"value": "suegro(a)", "name": "Suegro(a)"
+},{
+	"value": "yerno", "name": "Yerno"
+},{
+	"value": "nuera", "name": "Nuera"
+},{
+	"value": "hermano(a)", "name": "Hermano(a)"
+},{
+	"value": "cuñado(a)", "name": "Cuñado(a)"
+},{
+	"value": "hijo(a)", "name": "Hijo(a)"
+},{
+	"value": "abuelo(a)", "name": "Abuelo(a)"
+},{
+	"value": "bisabuelo(a)", "name": "Bisabuelo(a)"
+},{
+	"value": "nieto(a)", "name": "Nieto(a)"
+},{
+	"value": "bisnieto(a)", "name": "Bisnieto(a)"
+},{
+	"value": "sobrino(a)", "name": "Sobrino(a)"
+},{
+	"value": "pareja", "name": "Pareja"
+},{
+	"value": "novio(a)", "name": "Novio(a)"
+},{
+	"value": "tio(a)", "name": "Tio(a)"
+}, {
+	"value": "amigo(a)", "name": "Amigo(a)"
+}]

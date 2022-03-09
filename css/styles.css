@@ -1,0 +1,319 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.container-fluid {
+  background: #e9ecf1; /*rgb(242, 242, 242);rgba(117, 28, 97, .2);*/
+  min-height: 100vh;
+}
+
+.fondo-login {
+  margin-top: 5%;
+}
+
+/* S I D E B A R */
+.sidebar {
+  background: rgba(94, 12, 124, 0.95);
+  z-index: 1000;
+  max-width: 85%;
+  margin: 0;
+  padding: 0;
+  font-size: 15px;
+  min-height: 99vh;
+  height: calc(100% - 10px);
+}
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+nav ul li a:hover {
+  color: #64dd17;
+  font-size: 17px;
+  /* color: #3B9B6D;*/
+}
+nav ul li a:active {
+  color: #64dd17;
+  /* color: #3B9B6D;*/
+}
+nav ul li {
+  position: relative;
+  margin: 5px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+nav ul li a {
+  color: #fff;
+  display: block;
+  text-decoration: none;
+  padding: 11px 20px;
+}
+nav ul li a span {
+  margin-right: 8px;
+}
+
+nav ul li .childrenn {
+  /*background: rgba(0, 129, 0, .4);*/
+  /*background: rgba(189, 7, 85,.4);*/
+  background: rgb(64, 12, 82);
+}
+nav ul li .childrenn li {
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-bottom: 0;
+  /*background:  rgba(94, 12, 124, .5);*/
+}
+nav img {
+  width: 170px;
+  height: 50%;
+  justify-content: center;
+}
+.sidebar-logo {
+  background: rgba(255, 255, 255, 0.9);
+}
+/*   Inicio-general   */
+.bienvenida img {
+  opacity: 0.6;
+  filter: alpha(opacity=80); /* For IE8 and earlier */
+}
+.bienvenida {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  margin-top: 15%;
+}
+/* Registrar usuarios */
+.card-body {
+  background: #ededed;
+}
+
+/* usuario editar */
+
+/*   cards */
+.card-body,
+.card-footer {
+  background: white;
+}
+.c-header {
+  background-color: rgba(94, 12, 124, 0.8);
+  color: white;
+}
+/* FONDOS Y BOTONES */
+.fondo-login img {
+  width: 50%;
+  height: 50%;
+}
+.fondo-inicio {
+  /*background: rgba(0, 129, 0, .4);*/
+  /*background: rgba(189, 7, 85,.4);*/
+  width: 100%;
+  height: 50%;
+  background: rgba(165, 46, 205, 0.15);
+  background-image: url("../assets/img/fondo_login.png");
+  background-repeat: repeat;
+  background-size: contain;
+}
+.btn-redondo {
+  font-size: large;
+  border-radius: 40px;
+  padding: 6px;
+  border-style: none;
+}
+.btn-principal {
+  background: rgb(94, 12, 123);
+  color: whitesmoke;
+}
+.btn-principal:hover {
+  background: rgba(94, 12, 123, 0.8);
+  color: whitesmoke;
+}
+/* DINAMISMO DE INTERFACES */
+.no-activo {
+  display: none;
+}
+/* TEXTO DE CASO_PASO_6*/
+#caso_paso_6 > input[type="checkbox"] {
+  text-align: justify-all;
+}
+input[type="checkbox"] {
+  border: 2px solid rgba(94, 12, 124, 0.8);
+}
+
+.scroll {
+  overflow: auto;
+}
+#cuadro_municipios table {
+  text-align: center;
+}
+#cuadro_municipios th,
+#cuadro_municipios td {
+  font-size: small;
+  margin: 0;
+  padding: 1px;
+}
+
+.bg_1 {
+  background: rgba(0, 129, 0, 1);
+  /*background: rgba(189, 7, 85,.4);*/
+}
+.agregar {
+  background-image: url(../assets/img/plus-lg.svg);
+}
+.scroll table {
+  max-width: 100%;
+
+}
+.scroll table td {
+  padding: 2px;
+  font-size: small;
+}
+.scroll table th {
+  font-size: small;
+}
+.graficos {
+  background-image: url(../assets/img/transparente.png);  
+  background-size: 40%; 
+  background-repeat: no-repeat; 
+  background-position: center;
+ /* opacity: 0.4;
+  filter: alpha(opacity = 80);*/
+}
+
+.graficosu {
+  background-image: url(../assets/img/transparente.png);  
+  background-size: 10%; 
+  background-repeat: no-repeat; 
+  background-position: center;
+ /* opacity: 0.4;
+  filter: alpha(opacity = 80);*/
+}
+.fuente_tam {
+  font-size: smaller;
+  text-align: justify;
+}
+.icon-editar {
+  height: 40px;
+  width: 42px;
+  background-image: url(../assets/img/icons/pencil-square.svg);
+  background-repeat: no-repeat; 
+  background-position: center;
+  background-color: #009CDC;
+}
+.icon-eliminar {
+  height: 40px;
+  width: 42px;
+  background-image: url(../assets/img/icons/trash-fill.svg);
+  background-repeat: no-repeat; 
+  background-position: center;
+  background-color: #FC3939;
+}
+.icon-anadir {
+  height: 40px;
+  width: 42px;
+  background-image: url(../assets/img/icons/plus-lg.svg);
+  background-repeat: no-repeat; 
+  background-position: center;
+  background-color: #EFA31D;
+}
+.icon-revisado {
+  height: 40px;
+  width: 42px;
+  background-image: url(../assets/img/icons/check-square.svg);
+  background-repeat: no-repeat; 
+  background-position: center;
+  background-color: #13B955;
+}
+
+.icon-editar:hover {
+  background-color: #0085BB;
+}
+.icon-eliminar:hover {
+  background-color: #D63030;
+}
+.icon-anadir:hover {
+  background-color: #CB8B19;
+}
+.icon-revisado:hover {
+  background-color: #109D48;
+}
+
+.seleccionado {
+  color: #64dd17;
+  font-size: 17px;
+  /* color: #3B9B6D;*/
+}
+
+#mdlEditarCaso .modal-body h5 {
+  color: #4C2A80;
+}
+@media screen and (max-width: 950px) {
+  /*  body {
+        padding-top: 0px;
+    }
+    .menu_bar {
+        display: block;
+        width: 90%;;
+        position: fixed;
+        top: 0;
+        background: #460938;
+        margin: 0px;
+    }
+    .menu_bar .bt-menu {
+        display: block;
+        padding: 9px 20px;
+        color: #FFF;
+        overflow: hidden;
+        font-weight: bold;
+        text-decoration: none;
+        font-size: 25px;
+    }
+    .menu_bar span {
+        float: right;
+    }
+    /*header nav {
+        width: 80%;
+        position: fixed;
+        right: 100%;
+        
+        margin: 0px;
+        overflow: scroll;
+        height: calc(100% - 43px);
+        display: flex;
+        justify-content: start;
+        font-size: small;
+        margin-right: 0;
+    }
+    header nav ul {
+        display: flex;
+        flex-direction:  column;
+        margin-left: -40px;
+        width: 100%;
+
+    }
+    header nav ul li {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+
+    }
+    header nav ul li .childrenn {
+        width: 100%;
+        position: relative;
+    }
+    header nav ul li:hover .childrenn {
+        display: none;
+    }
+*/
+}
+.scroll-y{  
+  max-height: 35vh;
+}
+
+.scroll-y {  
+  overflow: auto;
+}
+
+

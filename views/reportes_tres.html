@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitor</title>
+    <link rel="stylesheet" href="../../css/fonts.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="../assets/lib/include-html.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"></script>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-3 p-0">         
+          <nav id="sidebar" class="sidebar p-0"> 
+              <ul>
+                  <li class="sidebar-logo d-flex justify-content-center"><img src="../assets/img/logo.png" alt=""></li>
+                  <li><a name="_inicio" href="#"><span class="icon-home"></span>Inicio</a></li>
+                  <li><a name="_usuarios" href="#"><span class="icon-user"></span>Usuarios</a></li>
+                  <li><a name="_casos" data-bs-toggle="collapse" href="#childrenC" role="button" aria-expanded="false">
+                      <div class="d-flex justify-content-between">
+                          <div><span class="icon-files-empty"></span>Casos</div>
+                          <i class="bi bi-chevron-down  ms-4"></i>
+                      </div></a>
+                      <ul id="childrenC" class="collapse childrenn">
+                          <li><a href="casos.html">General</a></li>
+                          <li><a href="casos_temp_admin.html">Casos por revisar</a></li>
+                      </ul>
+                  </li>
+                  <li><a name="_reportes" data-bs-toggle="collapse" href="#children" role="button" aria-expanded="false">
+                      <div class="d-flex justify-content-between">
+                          <div><span class="icon-file-pdf"></span>Reportes</div>
+                          <i class="bi bi-chevron-down  ms-4"></i>
+                      </div></a>
+                      <ul id="children" class="collapse.show childrenn">
+                          <li><a href="reportes_uno.html">Cuadro por municipio</a></li>
+                          <li><a href="reportes_dos.html">Cuadro por causa de muerte</a></li>
+                          <li><a href="reportes_tres.html" class="seleccionado">Gráficas</a></li>
+                      </ul>
+                  </li>
+                  <!--<li><a href="#"><span class="icon-sphere"></span>Adiministrar sito web</a></li>-->
+                  <li><a name="_salir" href="#"><span class="icon-exit"></span>Cerrar sesión</a></li> 
+              </ul>
+          </nav>
+      </div>
+      <div class="col-md-8">  
+          <div class="row mt-3">
+              <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="./inicio.html">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Reportes</li>
+                    <li class="breadcrumb-item active" aria-current="page">Gráficas</li>
+                  </ol>
+                </nav>
+          </div>
+          <div class="row" >
+              <h3 class="mb-3 p-0">Gráfica anual por municipios</h3><hr>  
+              <div class="row d-flex justify-content-between p-0">
+                  <div class="col-3 mb-1">    
+                      <select class="form-select btn-primary" id="slct_annios"></select>
+                    </div>
+                    <div class="col-3 mb-3">    
+                      <select class="form-select btn-success" id="slct_exportar">
+                        <option selected>Exportar a...</option>
+                        <option value="1">PDF</option>
+                      </select>
+                    </div>
+              </div>                            
+          </div>
+          <div class="row graficos" id="seccion_grafica"> 
+            <canvas id="grafica">
+            </canvas>  
+            <p class="fuente_tam">
+              <strong>Fuente: </strong>
+              <cite> Información documentada a través de los distintos medios de comunicación del 
+                <strong>Estado de Guerrero</strong> (medios escritos y orales).</cite>
+            </p>  
+          </div>
+        </div>
+      </div>
+
+
+    </div>     
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>  
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>     
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="--/assets/lib/html2pdf.bundle.min.js"></script>
+    <script src="../js/control_graficas.js" type="module"></script>
+    <script src="../js/sidebar.js "></script>         
+</body>
+</html>

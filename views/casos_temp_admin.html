@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Monitor</title>
+  <link rel="stylesheet" href="../../css/fonts.css" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <script src="../assets/lib/include-html.js"></script>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css" />
+  <link rel="stylesheet" href="../css/bootstrap.min.css" />
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row me-4">
+      <div class="col-md-3 p-0">
+        <nav id="sidebar" class="sidebar p-0">
+          <ul>
+            <li class="sidebar-logo d-flex justify-content-center">
+              <img src="../assets/img/logo.png" alt="" />
+            </li>
+            <li>
+              <a name="_inicio" href="#"><span class="icon-home"></span>Inicio</a>
+            </li>
+            <li>
+              <a name="_usuarios" href="#"><span class="icon-user"></span>Usuarios</a>
+            </li>
+            <li>
+              <a name="_casos" data-bs-toggle="collapse" href="#childrenC" role="button" aria-expanded="false">
+                <div class="d-flex justify-content-between">
+                  <div><span class="icon-files-empty"></span>Casos</div>
+                  <i class="bi bi-chevron-down ms-4"></i>
+                </div>
+              </a>
+              <ul id="childrenC" class="collapse.show childrenn">
+                <li><a href="casos.html" class="seleccionado">General</a></li>
+                <li><a href="casos_temp_admin.html">Casos por revisar</a></li>
+              </ul>
+            </li>
+            <li>
+              <a name="_reportes" data-bs-toggle="collapse" href="#children" role="button" aria-expanded="false">
+                <div class="d-flex justify-content-between">
+                  <div><span class="icon-file-pdf"></span>Reportes</div>
+                  <i class="bi bi-chevron-down ms-4"></i>
+                </div>
+              </a>
+              <ul id="children" class="collapse childrenn">
+                <li><a href="reportes_uno.html">Cuadro por municipio</a></li>
+                <li>
+                  <a href="reportes_dos.html">Cuadro por causa de muerte</a>
+                </li>
+                <li><a href="reportes_tres.html">Gráficas</a></li>
+              </ul>
+            </li>
+            <!--<li><a href="#"><span class="icon-sphere"></span>Adiministrar sito web</a></li>-->
+            <li>
+              <a name="_salir" href="#"><span class="icon-exit"></span>Cerrar sesión</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="col-md-9">
+        <div class="row mt-3">
+          <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="./inicio.html">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Casos</li>
+              <li class="breadcrumb-item active" aria-current="page">Por revisar</li>
+            </ol>
+          </nav>
+        </div>
+        <div class="row mb-3"><h3>Casos por revisar</h3><hr /></div>
+          <div class="scroll scroll-y">
+            <table class="table">
+              <thead class="table-primary">
+                <th>#</th>
+                <th>Fecha</th>
+                <th>Municipio</th>
+                <th>Nombre</th>
+                <th>Edad</th>
+                <th>Acciones</th>
+              </thead>
+              <tbody id="tabla_casos"></tbody>
+            </table>
+          </div>          
+        </div>        
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal editar caso-->
+  <div class="modal fade" id="mdlEditarCasoTemp" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Editar Caso</h5>
+        </div>
+        <div class="modal-body modulo_casos_editar_temp">
+          <section id="caso_paso_1" class="mb-3">
+            <h5 class="justify-content-center d-flex mt-1">Fuentes de información</h5>
+              <form class="row g-3 needs-validation mt-1 mb-3 ms-2" novalidate>
+                <div class="col-md-3">
+                  <select class="form-select" id="_tipoFuente" required>
+                    <option value="" selected disabled>Tipo de fuente</option>
+                    <option value="periodico">Periódico</option>
+                    <option value="revista">Revista</option>
+                    <option value="redes">Redes sociales</option>
+                    <option value="sitio">Sitio web</option>
+                  </select>
+                </div>
+                <div id="divfuente" class="col-md-4">
+                  <input type="text" class="form-control" name="_nombreFuente" id="_nombreFuente"
+                    placeholder="Nombre de fuente" required />
+                  <div class="invalid-feedback">Inserte un nombre válido</div>
+                </div>
+                <div id="divperiodico" class="col-md-4 no-activo">
+                  <select class="form-select" name="_nombrePeriodico" id="_nombrePeriodico" required>
+                    <option selected disabled value="">Seleccione el periódico</option>
+                  </select>
+                </div>
+                <div class="col-md-3">
+                  <input type="text" class="form-control" id="_fechaPublicacion" placeholder="Fecha de publicación"
+                    onclick="(this.type='date')" onfocus="(this.type='date')" onblur="(this.type='text')" />
+                  <div class="invalid-feedback">Inserte una fecha válida</div>
+                </div>
+                <div class="col-md-2">
+                  <button class="btn btn-warning" name="btn_nueva_fuente" id="btn_nueva_fuente">
+                    <i class="bi bi-plus-lg me-2"></i>Agregar
+                  </button>
+                </div>
+              </form>
+              <div class="row g-3 mt-3 ms-2 me-2">
+                <div class="col-md-9">
+                  <table class="table">
+                    <h6 class="mb-1">Fuentes añadidas</h6>
+                    <thead class="table-info">
+                      <th>#</th>
+                      <th>Tipo de fuente</th>
+                      <th>Nombre</th>
+                      <th>Fecha de publicación</th>
+                      <th>Opciones</th>
+                    </thead>
+                    <tbody id="tablaFuentes_edit"></tbody>
+                  </table>
+                </div>
+              </div>
+          </section><hr>
+          <section id="caso_paso_2" class="mb-3 ">
+            <h5 class="justify-content-center d-flex mt-1">Datos de la víctima</h5>
+            <form class="frm_paso2 nee ds-validation mt-1 mb-3 ms-4 me-4" novalidate>
+              <div class="row g-2 mb-3">
+                <label class="form-check-label col-form-label">¿La víctima fue identificada?</label>
+                <div class="form-check col-md-1">
+                  <input class="form-check-input" type="radio" id="_paso2_contenido1_si" name="paso2_contenido1"
+                    value="si" />
+                  <label class="form-check-label">Sí</label>
+                </div>
+                <div class="form-check col-md-1 mb-3">
+                  <input class="form-check-input" type="radio" id="_paso2_contenido1_no" name="paso2_contenido1"
+                    value="no" />
+                  <label class="form-check-label">No</label>
+                </div>
+                <div class="p-0 no-activo" id="v_si">
+                  <div class="row g-3 mb-3">
+                    <div class="col-md-4">
+                      <input type="text" class="form-control campo" id="_nombre_victima" name="" placeholder="Nombre" required />
+                    </div>
+                    <div class="col-md-4">
+                      <input type="text" class="form-control campo" id="_apellido1_victima" name="" placeholder="Apellido paterno" required />
+                    </div>
+                    <div class="col-md-4">
+                      <input type="text" class="form-control campo" id="_apellido2_victima" name="" placeholder="Apellido materno" required />
+                    </div>
+                  </div>
+                </div>
+                <label class="form-check-label col-form-label">¿Se conoce la edad?</label>
+                <div class="form-check col-md-1">
+                  <input class="form-check-input" type="radio" id="_paso2_contenido1_1_si" name="paso2_contenido1_1"
+                    value="si" />
+                  <label class="form-check-label">Sí</label>
+                </div>
+                <div class="form-check col-md-1 mb-3">
+                  <input class="form-check-input" type="radio" id="_paso2_contenido1_1_no" name="paso2_contenido1_1"
+                    value="no" />
+                  <label class="form-check-label">No</label>
+                </div>
+                <div class="p-0 no-activo" id="v_edad">
+                  <div class="row g-3 mb-3">
+                    <label class="col-md-auto col-form-label">Edad mínima:
+                    </label>
+                    <div class="col-md-2">
+                      <input class="form-control col-md-3 campo" type="number" id="_edad_victima_min" name="" min="1" max="100" />
+                    </div>
+                    <label class="col-md-auto col-form-label">Edad máxima:
+                    </label>
+                    <div class="col-md-2">
+                      <input class="form-control col-md-3 campo" type="number" id="_edad_victima_max" name="" min="1" max="100" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row g-3 px-0 mb-3">
+                <label class="form-check-label col-form-label">¿Se conoce la información laboral?</label>
+                <div class="form-check col-md-1">
+                  <input class="form-check-input" type="radio" id="_paso2_contenido2_si" name="paso2_contenido2"
+                    value="si" />
+                  <label class="form-check-label">Sí</label>
+                </div>
+                <div class="form-check col-md-1">
+                  <input class="form-check-input" type="radio" id="_paso2_contenido2_no" name="paso2_contenido2"
+                    value="no" />
+                  <label class="form-check-label">No</label>
+                </div>
+                <div class="no-activo" id="info_laboral">
+                  <div class="row g-3 px-0 mb-3 ">
+                    <div class="col-md-5">
+                      <select class="form-select campo" id="_ocupacion_victima" required>
+                        <option selected disabled value="">Ocupación</option>
+                        <option value="ama_de_casa">Ama de casa</option>
+                        <option value="comerciante">Comerciante</option>
+                        <option value="empleada_empresa_privada">Empleada de empresa privada</option>
+                        <option value="estudiante">Estudiante</option>
+                        <option value="empleada_domestica">Empleada doméstica</option>
+                        <option value="empleada_de_gobierno">Empleada de godierno</option>
+                      </select>
+                    </div>
+                    <div class="col">
+                      <textarea class="form-control campo" id="_lugar_trabajo_victima" rows="3" placeholder="Lugar de trabajo"></textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row g-2 px-0 mb-3">
+                <label class="form-check-label col-form-label">¿Se conocen los datos de origen?</label>
+                <div class="form-check col-md-1">
+                  <input class="form-check-input" type="radio" id="_paso2_contenido3_si" name="paso2_contenido3"
+                    value="si" />
+                  <label class="form-check-label">Sí</label>
+                </div>
+                <div class="form-check col-md-1">
+                  <input class="form-check-input" type="radio" id="_paso2_contenido3_no" name="paso2_contenido3"
+                    value="no" />
+                  <label class="form-check-label">No</label>
+                </div>
+                <div class=" no-activo" id="info_origen">
+                  <div class="row g-3 px-0">
+                    <label class="form-check-label col-form-label">Guerrero</label>
+                    <div class="col-md-4">
+                      <select class="form-select campo" id="_select_municipios_victima" name="_select_municipios" required>
+                        <option selected disabled value=""> Municipio</option>
+                      </select>
+                    </div>
+                    <div class="col-md-4">
+                      <select class="form-select campo" id="_select_localidades_victima" name="_select_localidades" required>
+                        <option selected disabled value="">Localidad</option>
+                      </select>
+                      <label class="" id="lblMunicipio"></label>
+                    </div>
+                    <label class="form-check-label col-form-label">Otro Estado</label>
+                    <div class="col-12">
+                      <textarea class="form-control campo" id="otroEstadoOrigen" rows="3"
+                      placeholder="Estado, municipio, localidad y/o domicilio (Si el estado no es Guerrero)"></textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </section><hr>
+          <section id="caso_paso_3" class="mb-3 ">         
+            <h5 class="justify-content-center d-flex mt-1">Datos del agresor</h5>
+            <form class="needs-validation mt-1 mb-3 ms-3 me-3" novalidate>
+              <div class="row g-2 mb-3">
+                <label class="form-check-label col-form-label">¿El agresor fue identificado?</label>
+                <div class="form-check col-md-1">
+                  <input class="form-check-input" type="radio" name="paso3_contenido1" id="_paso3_contenido1_si" value="si" />
+                  <label class="form-check-label">Sí</label>
+                </div>
+                <div class="form-check col-md-1">
+                  <input class="form-check-input" type="radio" name="paso3_contenido1" id="_paso3_contenido1_no" value="no" />
+                  <label class="form-check-label">No</label>
+                </div>
+              </div>
+            </form>
+            <div class="no-activo" id="info_agresor">
+              <div class="row mt-1 mb-3 ms-3 me-3">
+                <div class="row justify-content-end p-0">
+                  <div class="col-md-auto mb-3">
+                    <button  data-bs-target="#mdl_consultar_agresor_edit" data-bs-toggle="modal"type="button" class="btn btn-info" name="btn_consultar_agresor" id="btn_consultar_agresor">
+                      <i class="bi bi-server me-2"></i>Buscar en la BD
+                    </button>
+                  </div>
+                </div>
+                <h5>Seleccionados</h5>
+                <div class="col">
+                  <table class="table">
+                    <thead class="table-primary">
+                      <th>#</th>
+                      <th>Nombre</th>
+                      <th>Apellido paterno</th>
+                      <th>Apellido materno</th>
+                      <th>Sobrenombre</th>
+                      <th>Acciones</th>
+                    </thead>
+                    <tbody id="tablaAgresoresSeleccionados"></tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </section> <hr>
+          <section id="caso_paso_4" class="mb-3 ">
+            <h5 class="justify-content-center d-flex mt-1">Lugar de hallazgo</h5>
+            <form class="needs-validation mt-1 mb-3 ms-4 me-4" novalidate>
+              <div class="row mb-3">
+                <label class="form-label">Fecha de hallazgo:</label>
+                <div class="col-md-auto">
+                  <input class="form-control campo" id="_fecha_hallazgo" name="_fecha_hallazgo" type="date"  />
+                </div>
+              </div>
+
+              <div class="row mb-3">
+                <label class="form-label">Lugar de hallazgo:</label>
+                <div class="col-md-4">
+                  <select class="form-select campo" id="_select_municipio_hallazgo" name="_select_municipios" required>
+                    <option selected disabled value="">Municipio</option>
+                  </select>
+                </div>
+                <div class="col-md-4">
+                  <select class="form-select campo" id="_select_localidades_hallazgos" name="_select_localidades" required>
+                    <option selected disabled value="">Localidad</option>
+                  </select>
+                  <label class="form-label" id="lblMunicipio_2"></label>
+                </div>
+              </div>  
+
+              <div class="col-md-5 mb-3">
+                <select class="form-select campo" id="_lugar_encuentro_hallazgo" required>
+                  <option selected value="" disabled>Lugar de los hechos</option>
+                  <option value="basurero">Basurero</option>
+                  <option value="barranco">Barranco</option>
+                  <option value="camino_terracería">Camino de terracería</option>
+                  <option value="carretera">Carretera</option>
+                  <option value="domicilio_agresor">Domicilio del agresor</option>
+                  <option value="domicilio_victima">Domicilio de la víctima</option>
+                  <option value="fosa_clandestina">Fosa clandestina</option>
+                  <option value="hotel">Hotel</option>
+                  <option value="otro_domicilio">Otro domicilio</option>
+                  <option value="via_publica">Vía pública</option>
+                </select>
+              </div>
+              
+              <div class="col">
+                <textarea class="form-control campo" id="_referencias_lugar_hallazgo" rows="3"
+                  placeholder="Referencias del lugar en el que se encontró la víctima"></textarea>
+              </div>
+            </form>
+          </section><hr>
+          <section id="caso_paso_5" class="mb-3 ">
+            <h5 class="justify-content-center d-flex mt-1">Causas de muerte</h5>
+            <form class="needs-validation mt-1 mb-3 ms-4 me-4" novalidate>
+              <div class="row g-2 mb-3">
+                <div class="row g-3">
+                  <label class="form-check-label col-form-label">¿Cuál(es) fue(ron) la(s) causa(s) de muerte?</label>
+                  <div class="row g-3 ms-3 mt-0">
+                    <div class="form-check col-md-4">
+                      <input class="form-check-input" type="checkbox" name="_causas_check" value="accidente_sospechoso"  />
+                      <label class="form-check-label">Accidente sospechoso</label>
+                    </div>
+
+                    <div class="form-check col-md-4">
+                      <input class="form-check-input" type="checkbox" name="_causas_check" value="asfixia"  />
+                      <label class="form-check-label">Asfixia</label>
+                    </div>
+                    <div class="form-check col-md-4">
+                      <input class="form-check-input" type="checkbox" name="_causas_check" value="desmemnbramiento"  />
+                      <label class="form-check-label">Desmembramiento</label>
+                    </div>
+                    <div class="form-check col-md-4">
+                      <input class="form-check-input" type="checkbox" name="_causas_check" value="envenamiento"  />
+                      <label class="form-check-label">Envenamiento</label>
+                    </div>
+                    <div class="form-check col-md-4">
+                      <input class="form-check-input" type="checkbox" name="_causas_check" value="extragulamiento"  />
+                      <label class="form-check-label">Extragulamiento</label>
+                    </div>
+                    <div class="form-check col-md-4 ">
+                      <input class="form-check-input" type="checkbox" name="_causas_check" value="impacto_de_bala"  />
+                      <label class="form-check-label">Impacto de bala</label>
+                    </div>
+                    <div class="form-check col-md-4">
+                      <input class="form-check-input" type="checkbox" name="_causas_check" value="incineracion"  />
+                      <label class="form-check-label">Incineración</label>
+                    </div>
+                    <div class="form-check col-md-4">
+                      <input class="form-check-input" type="checkbox" name="_causas_check" value="suicidio"  />
+                      <label class="form-check-label">Suicidio</label>
+                    </div>
+                    <div class="form-check col-md-4">
+                      <input class="form-check-input" type="checkbox" name="_causas_check" value="traumatismo"  />
+                      <label class="form-check-label">Traumatismo</label>
+                    </div>
+                    <div class="form-check col-md-4">
+                      <input class="form-check-input" type="checkbox" name="_causas_check" value="traumatismo_lapidacion" />
+                      <label class="form-check-label">Traumatismo por lapidación</label>
+                    </div>
+                    <div class="form-check col-md-4">
+                      <input class="form-check-input" type="checkbox" name="_causas_check" value="traumatismo_penetrante"  />
+                      <label class="form-check-label">Traumatismo penetrante</label>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <textarea class="form-control campo" id="_detalles_causa_muerte" rows="3"
+                      placeholder="Especificaciones"></textarea>
+                  </div>
+                  <label class="form-check-label col-form-label">Instrumento empleado para la comisión del delito</label>
+                  <div class="col-md-4">
+                    <select class="form-select campo" id="_instrumento_empleado" required>
+                      <option selected disabled value=""> Tipo de instrumento</option>
+                      <option value="arma_blanca">Arma blanca</option>
+                      <option value="arma_fuego">Arma de fuego</option>
+                      <option value="piedras">Piedras (lapidada)</option>
+                      <option value="torniquete">Torniquete</option>
+                      <option value="otro">Otro</option>
+                    </select>
+                  </div>
+                  <div class="col">
+                    <input type="text" class="form-control campo" id="_nombreInstrumento" name="_nombreInstrumento" placeholder="¿Cuál? Especifique"
+                      required />
+                    <div class="invalid-feedback">¿Cúal? Especifique</div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </section><hr>
+          <section id="caso_paso_6" class="mb-3 ">
+            <h5 class="justify-content-center d-flex mt-1">Características de la violencia feminicida</h5>
+            <form class="needs-validation mt-1 mb-3 ms-4 me-4 px-2" novalidate>
+              <div class="row gy-2 mb-3" id="caracteristicas">                  
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" name="_caracteristicas_violencia_check" value="I" id="caracteristica_I" />
+                  <label class="form-check-label">
+                    La víctima presenta señales de violencia sexual de
+                    cualquier tipo.
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" name="_caracteristicas_violencia_check" value="II" id="caracteristica_II" />
+                  <label class="form-check-label">
+                    A la víctima se le infligieron lesiones o
+                    mutilaciones, infamantes, denigrantes o degradantes,
+                    previas o posteriores a la privación de la vida o
+                    actos de necrofilia.
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" name="_caracteristicas_violencia_check" value="III" id="caracteristica_III" />
+                  <label class="form-check-label">
+                    Existen antecedentes o datos de cualquier tipo de
+                    violencia, cometido en el ámbito familiar, laboral o
+                    escolar, cometido por el sujeto activo en contra de la
+                    víctima.
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" name="_caracteristicas_violencia_check" value="IV" id="caracteristica_IV" />
+                  <label class="form-check-label">
+                    Existió entre el sujeto activo y la víctima una
+                    relación de familia, sentimental, afectiva o de
+                    confianza.
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" name="_caracteristicas_violencia_check" value="V" id="caracteristica_V" />
+                  <label class="form-check-label">
+                    Existen datos o referencias que establecen que hubo
+                    amenazas relacionadas con el hecho delictuoso , acoso
+                    o lesiones del sujeto activo en contra de la víctima.
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" name="_caracteristicas_violencia_check" value="VI" id="caracteristica_VI" />
+                  <label class="form-check-label">
+                    El cuerpo de la víctima fue expuesto, arrojado o
+                    exhibido en un lugar público.
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" name="_caracteristicas_violencia_check" value="VII" id="caracteristica_VII" />
+                  <label class="form-check-label">
+                    La víctima fue incomunicada , cualquiera que sea el
+                    tiempo previo a la privación de la vida.
+                  </label>
+                </div>                  
+              </div>
+              <div class="row g-2 mb-3" id="ambito">
+                <label class="form-check-label col-form-label">La violencia se ejerció en el ámbito:</label>
+                <div class="form-check col">
+                  <input class="form-check-input" type="checkbox" value="familia" name="_ambito_check"/>
+                  <label class="form-check-label">Familiar</label>
+                </div>
+                <div class="form-check col">
+                  <input class="form-check-input" type="checkbox" value="laboral" name="_ambito_check"/>
+                  <label class="form-check-label">Laboral</label>
+                </div>
+                <div class="form-check col">
+                  <input class="form-check-input" type="checkbox" value="escolar" name="_ambito_check"/>
+                  <label class="form-check-label">Escolar</label>
+                </div>
+                <div class="form-check col">
+                  <input class="form-check-input" type="checkbox" value="politico" name="_ambito_check"/>
+                  <label class="form-check-label">Político</label>
+                </div>
+                <div class="form-check col">
+                  <input class="form-check-input" type="checkbox" value="comunitario" name="_ambito_check"/>
+                  <label class="form-check-label">Comunitario</label>
+                </div>
+              </div>
+              <div class="row g-2 mb-3">
+                <label class="d-flex justify-content-center form-label"><b>Diligencias practicadas por las autoridades</b></label>
+                <textarea class="form-control campo"  rows="3" id="_diligencias_practicadas"></textarea>
+              </div>
+              <div class="row g-2 mb-3">
+                <label class="d-flex justify-content-center form-label"><b>Observaciones</b></label>
+                <textarea class="form-control campo"  rows="3" id="_observaciones_caracteristicas_violencia"></textarea>
+              </div>
+            </form>
+          </section>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary" name="btnGuardarModificaciones" id="btnGuardarModificaciones">Guardar cambios</button>
+        </div> 
+      </div>
+    </div>
+  </div>
+<!-- Modal consultar agresor-->
+  <div class="modal fade" id="mdl_consultar_agresor_edit_temp" data-bs-backdrop="static" data-bs-keyboard="false"
+  tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="_titulo_registrar_agresor">Buscar agresor(es) en la BD</h5>
+      </div>
+      <div class="modal-body">
+        <div class="row mb-3">
+          <div class="col">
+            <input type="text" class="form-control" name="_nombreAgresor" id="nombreABuscar"
+              placeholder="Nombre del agresor(a)" required />
+          </div>
+          <div class="col">
+            <button type="button" class="btn btn-info" name="btn_buscar_agresor" id="btn_buscar_agresor">
+              <i class="bi bi-search me-2"></i>Buscar
+            </button>
+          </div>
+        </div>
+        <div class="alert alert-success no-activo" role="alert" id="alertA_si"></div>
+        <div class="alert alert-danger no-activo" role="alert" id="alertA_no">No se encontraron coincidencias con su búsqueda</div>
+        <div class="col">
+          <table class="table">
+            <thead class="table-info">
+              <th>#</th>
+              <th>Nombre</th>
+              <th>Apellido paterno</th>
+              <th>Apellido materno</th>
+              <th>Sobrenombre</th>
+              <th>Seleccionar</th>
+            </thead>
+            <tbody id="tablaAgresores"></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button name="btn_sel_agresor" type="button" class="btn btn-primary" data-bs-target="#mdlEditarCaso" data-bs-toggle="modal"">
+          Aceptar<i class="bi bi-check-lg ms-2"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+ </div>
+  <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <script src="../js/sidebar.js "></script>
+  <script src="../js/temp_admin.js" type="module"></script>
+
+</body>
+
+</html>

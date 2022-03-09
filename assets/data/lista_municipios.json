@@ -1,0 +1,407 @@
+[
+    {
+        "value": "acapulco_de_juarez",
+        "name": "Acapulco de Juárez",
+        "children": "mexico/guerrero/acapulco-de-juarez.json"
+    },
+    {
+        "value": "acatepec",
+        "name": "Acatepec",
+        "children": "mexico/guerrero/acatepec.json"
+    },
+    {
+        "value": "ahuacuotzingo",
+        "name": "Ahuacuotzingo",
+        "children": "mexico/guerrero/ahuacuotzingo.json"
+    },
+    {
+        "value": "ajuchitlan_del_progreso",
+        "name": "Ajuchitlán del Progreso",
+        "children": "mexico/guerrero/ajuchitlan-del-progreso.json"
+    },
+    {
+        "value": "alcozauca_de_guerrero",
+        "name": "Alcozauca de Guerrero",
+        "children": "mexico/guerrero/alcozauca-de-guerrero.json"
+    },
+    {
+        "value": "alpoyeca",
+        "name": "Alpoyeca",
+        "children": "mexico/guerrero/alpoyeca.json"
+    },
+    {
+        "value": "apaxtla",
+        "name": "Apaxtla",
+        "children": "mexico/guerrero/apaxtla.json"
+    },
+    {
+        "value": "arcelia",
+        "name": "Arcelia",
+        "children": "mexico/guerrero/arcelia.json"
+    },
+    {
+        "value": "atenango_del_rio",
+        "name": "Atenango del Río",
+        "children": "mexico/guerrero/atenango-del-rio.json"
+    },
+    {
+        "value": "atlamajalcingo_del_monte",
+        "name": "Atlamajalcingo del Monte",
+        "children": "mexico/guerrero/atlamajalcingo-del-monte.json"
+    },
+    {
+        "value": "atlixtac",
+        "name": "Atlixtac",
+        "children": "mexico/guerrero/atlixtac.json"
+    },
+    {
+        "value": "atoyac de_alvarez",
+        "name": "Atoyac de Álvarez",
+        "children": "mexico/guerrero/atoyac-de-alvarez.json"
+    },
+    {
+        "value": "ayutla_de_los_libres",
+        "name": "Ayutla de los Libres",
+        "children": "mexico/guerrero/ayutla-de-los-libres.json"
+    },
+    {
+        "value": "azoyu",
+        "name": "Azoyú",
+        "children": "mexico/guerrero/azoyu.json"
+    },
+    {
+        "value": "benito_juarez",
+        "name": "Benito Juárez",
+        "children": "mexico/guerrero/benito-juarez.json"
+    },
+    {
+        "value": "buenavista_de_cuellar",
+        "name": "Buenavista de Cuéllar",
+        "children": "mexico/guerrero/buenavista-de-cuellar.json"
+    },
+    {
+        "value": "chilapa_de_alvarez",
+        "name": "Chilapa de Álvarez",
+        "children": "mexico/guerrero/chilapa-de-alvarez.json"
+    },
+    {
+        "value": "chilpancingo_de_los_bravo",
+        "name": "Chilpancingo de los Bravo",
+        "children": "mexico/guerrero/chilpancingo-de-los-bravo.json"
+    },
+    {
+        "value": "coahuayutla_de_jose_maria_izazaga",
+        "name": "Coahuayutla de José María Izazaga",
+        "children": "mexico/guerrero/coahuayutla-de-jose-maria-izazaga.json"
+    },
+    {
+        "value": "cochoapa_el_grande",
+        "name": "Cochoapa el Grande",
+        "children": "mexico/guerrero/cochoapa-el-grande.json"
+    },
+    {
+        "value": "cocula",
+        "name": "Cocula",
+        "children": "mexico/guerrero/cocula.json"
+    },
+    {
+        "value": "copala",
+        "name": "Copala",
+        "children": "mexico/guerrero/copala.json"
+    },
+    {
+        "value": "copalillo",
+        "name": "Copalillo",
+        "children": "mexico/guerrero/copalillo.json"
+    },
+    {
+        "value": "copanatoyac",
+        "name": "Copanatoyac",
+        "children": "mexico/guerrero/copanatoyac.json"
+    },
+    {
+        "value": "coyuca_de_benitez",
+        "name": "Coyuca de Benítez",
+        "children": "mexico/guerrero/coyuca-de-benitez.json"
+    },
+    {
+        "value": "coyuca_de_catalan",
+        "name": "Coyuca de Catalán",
+        "children": "mexico/guerrero/coyuca-de-catalan.json"
+    },
+    {
+        "value": "cuajinicuilapa",
+        "name": "Cuajinicuilapa",
+        "children": "mexico/guerrero/cuajinicuilapa.json"
+    },
+    {
+        "value": "cualac",
+        "name": "Cualác",
+        "children": "mexico/guerrero/cualac.json"
+    },
+    {
+        "value": "cuautepec",
+        "name": "Cuautepec",
+        "children": "mexico/guerrero/cuautepec.json"
+    },
+    {
+        "value": "cuetzala_del_progreso",
+        "name": "Cuetzala del Progreso",
+        "children": "mexico/guerrero/cuetzala-del-progreso.json"
+    },
+    {
+        "value": "cutzamala_de_pinzon",
+        "name": "Cutzamala de Pinzón",
+        "children": "mexico/guerrero/cutzamala-de-pinzon.json"
+    },
+    {
+        "value": "eduardo_neri",
+        "name": "Eduardo Neri",
+        "children": "mexico/guerrero/eduardo-neri.json"
+    },
+    {
+        "value": "florencio_villarreal",
+        "name": "Florencio Villarreal",
+        "children": "mexico/guerrero/florencio-villarreal.json"
+    },
+    {
+        "value": "general_canuto_a_neri",
+        "name": "General Canuto A. Neri",
+        "children": "mexico/guerrero/general-canuto-a-neri.json"
+    },
+    {
+        "value": "general_heliodoro_castillo",
+        "name": "General Heliodoro Castillo",
+        "children": "mexico/guerrero/general-heliodoro-castillo.json"
+    },
+    {
+        "value": "huamuxtitlan",
+        "name": "Huamuxtitlán",
+        "children": "mexico/guerrero/huamuxtitlan.json"
+    },
+    {
+        "value": "huitzuco_de_los_figueroa",
+        "name": "Huitzuco de los Figueroa",
+        "children": "mexico/guerrero/huitzuco-de-los-figueroa.json"
+    },
+    {
+        "value": "iguala_de_la_Independencia",
+        "name": "Iguala de la Independencia",
+        "children": "mexico/guerrero/iguala-de-la-independencia.json"
+    },
+    {
+        "value": "igualapa",
+        "name": "Igualapa",
+        "children": "mexico/guerrero/igualapa.json"
+    },
+    {
+        "value": "iliatenco",
+        "name": "Iliatenco",
+        "children": "mexico/guerrero/iliatenco.json"
+    },
+    {
+        "value": "ixcateopan_de_cuauhtemoc",
+        "name": "Ixcateopan de Cuauhtémoc",
+        "children": "mexico/guerrero/ixcateopan-de-cuauhtemoc.json"
+    },
+    {
+        "value": "jose_joaquin_de_herrera",
+        "name": "José Joaquín de Herrera",
+        "children": "mexico/guerrero/jose-joaquin-de-herrera.json"
+    },
+    {
+        "value": "juan_r_escudero",
+        "name": "Juan R. Escudero",
+        "children": "mexico/guerrero/juan-r-escudero.json"
+    },
+    {
+        "value": "juchitan",
+        "name": "Juchitán",
+        "children": "mexico/guerrero/juchitan.json"
+    },
+    {
+        "value": "leonardo_bravo",
+        "name": "Leonardo Bravo",
+        "children": "mexico/guerrero/leonardo-bravo.json"
+    },
+    {
+        "value": "la_union_de_isidoro_montes_de_oca",
+        "name": "La Unión de Isidoro Montes de Oca",
+        "children": "mexico/guerrero/la-union-de-isidoro-montes-de-oca.json"
+    },
+    {
+        "value": "malinaltepec",
+        "name": "Malinaltepec",
+        "children": "mexico/guerrero/malinaltepec.json"
+    },
+    {
+        "value": "marquelia",
+        "name": "Marquelia",
+        "children": "mexico/guerrero/marquelia.json"
+    },
+    {
+        "value": "martir_de_cuilapan",
+        "name": "Mártir de Cuilapan",
+        "children": "mexico/guerrero/martir-de-cuilapan.json"
+    },
+    {
+        "value": "metlatonoc",
+        "name": "Metlatónoc",
+        "children": "mexico/guerrero/metlatonoc.json"
+    },
+    {
+        "value": "mochitlan",
+        "name": "Mochitlán",
+        "children": "mexico/guerrero/mochitlan.json"
+    },
+    {
+        "value": "ometepec",
+        "name": "Ometepec",
+        "children": "mexico/guerrero/ometepec.json"
+    },
+    {
+        "value": "olinala",
+        "name": "Olinalá",
+        "children": "mexico/guerrero/olinala.json"
+    },
+    {
+        "value": "pedro_scencio_alquisiras",
+        "name": "Pedro Ascencio Alquisiras",
+        "children": "mexico/guerrero/pedro-ascencio-alquisiras.json"
+    },
+    {
+        "value": "petatlan",
+        "name": "Petatlán",
+        "children": "mexico/guerrero/petatlan.json"
+    },
+    {
+        "value": "pilcaya",
+        "name": "Pilcaya",
+        "children": "mexico/guerrero/pilcaya.json"
+    },
+    {
+        "value": "pungarabato",
+        "name": "Pungarabato",
+        "children": "mexico/guerrero/pungarabato.json"
+    },
+    {
+        "value": "quechultenango",
+        "name": "Quechultenango",
+        "children": "mexico/guerrero/quechultenango.json"
+    },
+    {
+        "value": "san_luis_acatlán",
+        "name": "San Luis Acatlán",
+        "children": "mexico/guerrero/san-luis-acatlan.json"
+    },
+    {
+        "value": "san_marcos",
+        "name": "San Marcos",
+        "children": "mexico/guerrero/san-marcos.json"
+    },
+    {
+        "value": "san_miguel_totolapan",
+        "name": "San Miguel Totolapan",
+        "children": "mexico/guerrero/san-miguel-totolapan.json"
+    },
+    {
+        "value": "taxco_de_alarcon",
+        "name": "Taxco de Alarcón",
+        "children": "mexico/guerrero/taxco-de-alarcon.json"
+    },
+    {
+        "value": "tecoanapa",
+        "name": "Tecoanapa",
+        "children": "mexico/guerrero/tecoanapa.json"
+    },
+    {
+        "value": "tecpan_de_galeana",
+        "name": "Técpan de Galeana",
+        "children": "mexico/guerrero/tecpan-de-galeana.json"
+    },
+    {
+        "value": "teloloapan",
+        "name": "Teloloapan",
+        "children": "mexico/guerrero/teloloapan.json"
+    },
+    {
+        "value": "tepecoacuilco_de_trujano",
+        "name": "Tepecoacuilco de Trujano",
+        "children": "mexico/guerrero/tepecoacuilco-de-trujano.json"
+    },
+    {
+        "value": "tetipac",
+        "name": "Tetipac",
+        "children": "mexico/guerrero/tetipac.json"
+    },
+    {
+        "value": "tixtla_de_guerrero",
+        "name": "Tixtla de Guerrero",
+        "children": "mexico/guerrero/tixtla-de-guerrero.json"
+    },
+    {
+        "value": "tlacoachistlahuaca",
+        "name": "Tlacoachistlahuaca",
+        "children": "mexico/guerrero/tlacoachistlahuaca.json"
+    },
+    {
+        "value": "tlacoapa",
+        "name": "Tlacoapa",
+        "children": "mexico/guerrero/tlacoapa.json"
+    },
+    {
+        "value": "tlalchapa",
+        "name": "Tlalchapa",
+        "children": "mexico/guerrero/tlalchapa.json"
+    },
+    {
+        "value": "tlalixtaquilla_de_maldonado",
+        "name": "Tlalixtaquilla de Maldonado",
+        "children": "mexico/guerrero/tlalixtaquilla-de-maldonado.json"
+    },
+    {
+        "value": "tlapa_de_comonfort",
+        "name": "Tlapa de Comonfort",
+        "children": "mexico/guerrero/tlapa-de-comonfort.json"
+    },
+    {
+        "value": "tlapehuala",
+        "name": "Tlapehuala",
+        "children": "mexico/guerrero/tlapehuala.json"
+    },
+    {
+        "value": "xalpatláhuac",
+        "name": "Xalpatláhuac",
+        "children": "mexico/guerrero/xalpatlahuac.json"
+    },
+    {
+        "value": "xochihuehuetlan",
+        "name": "Xochihuehuetlán",
+        "children": "mexico/guerrero/xochihuehuetlan.json"
+    },
+    {
+        "value": "xochistlahuaca",
+        "name": "Xochistlahuaca",
+        "children": "mexico/guerrero/xochistlahuaca.json"
+    },
+    {
+        "value": "zapotitlan_tablas",
+        "name": "Zapotitlán Tablas",
+        "children": "mexico/guerrero/zapotitlan-tablas.json"
+    },
+    {
+        "value": "zihuatanejo_de_azueta",
+        "name": "Zihuatanejo de Azueta",
+        "children": "mexico/guerrero/zihuatanejo-de-azueta.json"
+    },
+    {
+        "value": "zirandaro",
+        "name": "Zirándaro",
+        "children": "mexico/guerrero/zirandaro.json"
+    },
+    {
+        "value": "zitlala",
+        "name": "Zitlala",
+        "children": "mexico/guerrero/zitlala.json"
+    }
+]
